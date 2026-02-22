@@ -3,8 +3,8 @@ import { HiOutlineInboxArrowDown } from "react-icons/hi2"
 
 function Header() {
     return (
-        <div className="header bg-gray-900 p-2 flex justify-between text-white">
-            <li className="">Dashboard</li>
+        <div className="header bg-gray-900 p-2 h-[64px] flex justify-between items-center text-white">
+            <li className="text-sm font-bold">Dashboard</li>
             <div className="flex gap-3 items-center">
                 <li className="bg-gray-600 rounded-full p-1">
                     <HiOutlineInboxArrowDown />

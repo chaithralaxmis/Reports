@@ -56,7 +56,7 @@ function ReportList({ handleReportSelection, addReport, reports }) {
 
 
     return (
-        <div className={`w-full md:w-[250px] bg-white rounded-sm p-2 ${show ? "h-[calc(100vh-200px)]" : "h-[50px]"}`} >
+        <div className={`w-full md:w-[300px] bg-white flex flex-col rounded-sm p-2 ${show ? "h-[calc(100vh-215px)]" : "h-[50px]"}`} >
             <div className={`flex justify-between ${show ? "" : "p-2"}`}>
                 <h3 className="text-sm font-bold">Select Report Dashboard</h3>
                 
@@ -72,7 +72,7 @@ function ReportList({ handleReportSelection, addReport, reports }) {
                         <input type="text" placeholder="Search" className="bg-gray-100 rounded-sm w-[80%] p-1" value={search} onChange={(e) => handleSearch(e.target.value)} />
                         <button className="bg-blue-800 text-white rounded-sm w-[20%] cursor-pointer" onClick={() => setModal(true)}>Add</button>
                     </div>
-                    <div className="overflow-auto h-[68%] mt-1">
+                    <div className="overflow-auto flex-1 min-h-0 mt-1">
                         {
                             visibleReports.length > 0 ? visibleReports.map((report) => (
                                 <div key={report.id} className="flex gap-2 mt-3 justify-between rounded-sm bg-gray-100 px-2 py-1">

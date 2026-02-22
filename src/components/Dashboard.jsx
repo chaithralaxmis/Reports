@@ -136,16 +136,16 @@ function Dashboard() {
     }
 
     return (
-        <div className="p-3 bg-sky-50 h-[calc(100dvh-42px)] md:h-[calc(100vh-42px)] overflow-y-auto">
+        <div className="p-3 bg-sky-50 h-[calc(100dvh-70px)] md:h-[calc(100vh-68px)] overflow-y-auto md:overflow-y-hidden">
 
             <div className="flex gap-3">
                 <div className="bg-blue-800 w-[40px] h-[25px] flex items-center justify-center text-white rounded-sm"><FaRegMessage /></div>
                 <div className="font-bold ">
-                    Take-Home
+                    AlertOps Dashboard
                 </div>
             </div>
 
-            <div className="flex gap-3 mt-3 flex-wrap md:flex-nowrap justify-between">
+            <div className="flex gap-3 mt-3 flex-wrap md:flex-nowrap justify-between text-center md:text-start">
                 <div className="w-full md:w-[22%] bg-white rounded-sm p-3">
                     <div className="flex gap-2 items-center"> <CiCalendar /> Last 7 Days</div>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
@@ -156,7 +156,7 @@ function Dashboard() {
                     <div className="bg-blue-100 w-[40px] h-[40px] flex items-center justify-center text-white rounded-full">
                         <GoBellFill className="text-blue-800" />
                     </div>
-                    <div className="text-start">
+                    <div className="text-center">
                         <div className="font-bold text-md md:text-2xl">{openAlerts}</div>
                         <div>Open Alerts</div>
                     </div>
@@ -186,7 +186,7 @@ function Dashboard() {
                 <div className="w-full md:flex-1 bg-white rounded-sm p-3">
                     {
                         consolidatedReport == null ? <div className="flex justify-center items-center h-full">Please Choose a Report</div> :
-                            <>
+                            <div className="h-full flex flex-col">
 
                                 <div className="flex gap-3">
 
@@ -203,17 +203,17 @@ function Dashboard() {
                                         <div className="text-sm text-blue-400">{consolidatedReport?.summary.oldestUnacknowledgedDays} days</div>
                                     </div>
                                 </div>
-                                <div className="flex flex-wrap md:flex-nowrap justify-between gap-5 p-3 w-[100%]">
-                                    <div className="w-full md:w-[50%] shadow-md rounded-md p-3" >
+                                <div className="flex-1 flex flex-col md:flex-row justify-between gap-5 p-3 w-[100%]">
+                                    <div className="w-full md:w-[50%] min-h-[300px] md:min-h-0 shadow-md rounded-md p-3 flex flex-col flex-1" >
                                         <h2 className="text-sm font-bold mb-1">Best Unit Operations with Latest Number of Alerts</h2>
                                         <BarChart consolidatedReport={consolidatedReport} />
                                     </div>
-                                    <div className="w-full md:w-[50%] shadow-md rounded-md p-3" >
+                                    <div className="w-full md:w-[50%] min-h-[300px] md:min-h-0 shadow-md rounded-md p-3 flex flex-col flex-1" >
                                         <h2 className="text-sm font-bold mb-1">Alert rates Distribution</h2>
                                         <DoughnutChart consolidatedReport={consolidatedReport} />
                                     </div>
                                 </div>
-                            </>
+                            </div>
                     }
                 </div>
             </div>

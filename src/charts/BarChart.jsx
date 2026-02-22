@@ -48,19 +48,20 @@ function BarChart({ consolidatedReport }) {
         ],
     };
     const options = {
-        // responsive: true,
+        responsive: true,
         plugins: {
             legend: { display: false }
         },
         scales: {
             x: { stacked: true },
             y: { stacked: true }
-        }
+        },
+        maintainAspectRatio: false
     };
 
     return (
         <>
-            <div className="h-[220px]">
+            <div className="flex-1 flex flex-col min-h-0">
                 <Bar data={data} options={options}  />
             </div>
             <div className="flex gap-2 text-xs">

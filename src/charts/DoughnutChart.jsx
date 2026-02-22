@@ -32,24 +32,21 @@ function DoughnutChart({ consolidatedReport }) {
         responsive: true,
         plugins: {
             legend: { display: false }
-        }
+        },
+        maintainAspectRatio: false
     }
     return (
-        <>
-            <div className="flex flex-wrap md:flex-nowrap justify-between gap-3">
-
-                <div className="w-full md:h-[220px] md:w-[220px]">
-                    <Doughnut data={data} options={options} />
-                </div>
-                <div className="flex-1 flex-row md:flex-col flex-wrap md:flex-nowrap flex gap-2 text-xs ">
-                    <div className="flex items-center gap-2"><div className="bg-blue-700 h-[10px] w-[10px] rounded-full"></div>Open</div>
-                    <div className="flex items-center gap-2"><div className="bg-blue-500 h-[10px] w-[10px] rounded-full"></div>In Process</div>
-                    <div className="flex items-center gap-2"><div className="bg-purple-300 h-[10px] w-[10px] rounded-full"></div>Unacknowledged</div>
-                    <div className="flex items-center gap-2"><div className="bg-purple-500 h-[10px] w-[10px] rounded-full"></div>On Watch</div>
-                </div>
-            </div >
-        </>
-
+        <div className="flex-1 flex flex-col md:flex-row justify-between gap-3">
+            <div className="w-full flex-1 flex flex-col min-h-0">
+                <Doughnut data={data} options={options} />
+            </div>
+            <div className="flex flex-row md:flex-col flex-wrap md:flex-nowrap gap-2  text-xs ">
+                <div className="flex items-center gap-2"><div className="bg-blue-700 h-[10px] w-[10px] rounded-full"></div>Open</div>
+                <div className="flex items-center gap-2"><div className="bg-blue-500 h-[10px] w-[10px] rounded-full"></div>In Process</div>
+                <div className="flex items-center gap-2"><div className="bg-purple-300 h-[10px] w-[10px] rounded-full"></div>Acknowledged</div>
+                <div className="flex items-center gap-2"><div className="bg-purple-500 h-[10px] w-[10px] rounded-full"></div>On Watch</div>
+            </div>
+        </div>
     );
 }
 
