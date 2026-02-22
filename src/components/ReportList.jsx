@@ -23,7 +23,7 @@ function reducer(state, action) {
 
 
 
-function ReportList({ handleReportSelection, addReport, reports }) {
+function ReportList({ handleReportSelection, addReport, reports, selectedReports }) {
     const [modal, setModal] = useState(false)
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -106,6 +106,13 @@ function ReportList({ handleReportSelection, addReport, reports }) {
     }
 
 
+    const isChecked = (report) =>{
+        let index = selectedReports.findIndex((data)=>data.id === report.id)
+        console.log(index,"index")
+        return index == -1 ? false: true
+    }
+
+
     return (
         <div className={`w-full md:w-[300px] bg-white flex flex-col rounded-sm p-2 ${show ? "h-[calc(100vh-215px)]" : "h-[50px]"}`} >
             <div className={`flex justify-between ${show ? "" : "p-2"}`}>
@@ -128,7 +135,7 @@ function ReportList({ handleReportSelection, addReport, reports }) {
                             visibleReports.length > 0 ? visibleReports.map((report) => (
                                 <div key={report.id} className="flex gap-2 mt-3 justify-between rounded-sm bg-gray-100 px-2 py-1">
                                     <label htmlFor="">{report.title}</label>
-                                    <input type="checkbox" className="cursor-pointer" onChange={() => handleReportSelection(report)} />
+                                    <input type="checkbox" className="cursor-pointer" checked={isChecked(report)} onChange={() => handleReportSelection(report)} />
                                 </div>
                             )) : <div className="text-center mt-3">No reports found</div>
                         }

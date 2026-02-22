@@ -182,7 +182,7 @@ function Dashboard() {
             </div>
 
             <div className="flex justify-between gap-2 mt-3 rounded-sm flex-wrap md:flex-nowrap">
-                <ReportList handleReportSelection={handleReportSelection} addReport={addReport} reports={reports} />
+                <ReportList handleReportSelection={handleReportSelection} addReport={addReport} reports={reports} selectedReports={selectedReports} />
                 <div className="w-full md:flex-1 bg-white rounded-sm p-3">
                     {
                         consolidatedReport == null ? <div className="flex justify-center items-center h-full">Please Choose a Report</div> :
